@@ -7,7 +7,13 @@ require('dotenv').config();
 const db = require('./db');
 
 const app = express();
+// ... all your API routes above ...
+
 const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Backend server running on http://localhost:${PORT}`));
+
+// Export Express app for Vercel Serverless Functions
+module.exports = app;
 
 // ============================================================================
 // 1. CORS CONFIGURATION (Fixes React Vite 5173 <-> Express 5000 mismatch)
